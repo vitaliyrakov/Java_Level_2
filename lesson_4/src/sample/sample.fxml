@@ -3,6 +3,20 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-</GridPane>
+<?import javafx.scene.shape.Box?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml">
+    <center>
+        <TextArea fx:id="textArea"/>
+    </center>
+    <bottom>
+        <HBox >
+            <TextField fx:id="textField" onAction="#clickSend"/>
+            <Button text="send" onAction="#clickSend"/>
+        </HBox>
+    </bottom>
+</BorderPane>
