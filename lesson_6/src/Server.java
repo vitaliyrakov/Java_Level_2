@@ -12,7 +12,6 @@ public class Server {
         try (ServerSocket server = new ServerSocket(PORT)) {
             System.out.println("server started");
             Scanner in = new Scanner(System.in);
-
             try (Socket socket = server.accept()) {
                 System.out.println("client connected");
 
@@ -25,6 +24,7 @@ public class Server {
                             String str = inStream.readUTF();
                             if (str.equals("/end")) {
                                 System.out.println("Client disconnected");
+                                break;
                             }
                             System.out.println("Client: " + str);
                         }
