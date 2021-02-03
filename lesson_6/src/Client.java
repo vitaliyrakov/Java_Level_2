@@ -14,7 +14,6 @@ public class Client {
             System.out.println("connected");
             DataInputStream inStream = new DataInputStream(socket.getInputStream());
             DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
-
             Thread t1 = new Thread(() -> {
                 try {
                     while (true) {
