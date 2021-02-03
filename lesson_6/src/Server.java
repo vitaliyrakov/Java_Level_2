@@ -25,6 +25,7 @@ public class Server {
                             String str = inStream.readUTF();
                             if (str.equals("/end")) {
                                 System.out.println("Client disconnected");
+                                break;
                             }
                             System.out.println("Client: " + str);
                         }

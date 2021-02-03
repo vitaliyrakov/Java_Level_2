@@ -2,7 +2,6 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class Client {
@@ -17,9 +16,13 @@ public class Client {
             DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
 
             Thread t1 = new Thread(() -> {
-                while (true) {
-                    String str = inStream.readUTF();
-                    System.out.println("Server: " + str);
+                try {
+                    while (true) {
+                        String str = inStream.readUTF();
+                        System.out.println("Server: " + str);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             });
             t1.setDaemon(true);
