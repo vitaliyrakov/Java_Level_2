@@ -44,6 +44,16 @@ public class Server {
             c.sendMsg(message);
         }
     }
+    
+    public void personMsg(ClientHandler sender, String msg){
+        String nickname = msg.split("\\s")[1];
+        String message = String.format("[ %s ] : %s", sender.getNickname(), msg.substring(Command.PERSON_MSG.length()+nickname.length()+1));
+        for (ClientHandler c : clients) {
+            if (nickname != "" && c.getNickname().equals(nickname) || sender.getNickname().equals(c.getNickname())) {
+                c.sendMsg(message);
+            }
+        }
+    }
 
     public void subscribe(ClientHandler clientHandler){
         clients.add(clientHandler);
