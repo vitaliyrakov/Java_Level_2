@@ -58,8 +58,8 @@ public class ClientHandler {
                             out.writeUTF(Command.END);
                             break;
                         }
-
-                        server.broadcastMsg(this, str);
+                        if (str.startsWith(Command.PERSON_MSG)) server.personMsg(this, str);
+                        else server.broadcastMsg(this, str);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
